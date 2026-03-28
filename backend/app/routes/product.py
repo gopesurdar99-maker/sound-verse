@@ -15,7 +15,7 @@ def get_products(db: Session = Depends(get_db)):
 
 @router.get("/{slug}", response_model=ProductResponse)
 def get_product(slug: str, db: Session = Depends(get_db)):
-    product = db.query(Product).filter(Product.slug == slug).first()
+    product = db.query(Product).filter(Product.slug.ilike(slug)).first()
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     return product

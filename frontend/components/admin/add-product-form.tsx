@@ -111,7 +111,7 @@ export default function AddProductForm() {
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <input value={form.name} onChange={(e) => updateField("name", e.target.value)} placeholder="Product name" className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white" required />
-        <input value={form.slug} onChange={(e) => updateField("slug", e.target.value)} placeholder="Slug" className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white" required />
+        <input value={form.slug} onChange={(e) => updateField("slug", e.target.value.toLowerCase().replace(/\s+/g, "-"))} placeholder="slug (auto-lowercased)" className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white" required />
         <input value={form.brand} onChange={(e) => updateField("brand", e.target.value)} placeholder="Brand" className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white" required />
         <select value={form.main_category} onChange={(e) => updateField("main_category", e.target.value)} className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white">
           <option value="Wireless">Wireless</option>
