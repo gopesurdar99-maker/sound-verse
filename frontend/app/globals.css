@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  --card: #111827;
+  --card-foreground: #fafafa;
+
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --primary: #3b82f6;
+  --secondary: #8b5cf6;
+  --accent: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.16), transparent 25%),
+    linear-gradient(180deg, #09090b 0%, #0b1120 100%);
+  color: var(--foreground);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container-width {
+  width: min(1200px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #fafafa 0%, #60a5fa 45%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 65%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.card-hover {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96, 165, 250, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #2563eb 0%, #8b5cf6 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.28);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media print {
+  header,
+  footer,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .glass {
+    background: white !important;
+    border: 1px solid #d4d4d8 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+}
