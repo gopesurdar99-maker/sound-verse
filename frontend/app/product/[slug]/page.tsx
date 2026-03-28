@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ProductCard from "@/components/products/product-card";
 import AddToCartButton from "@/components/products/add-to-cart-button";
+import BuyNowButton from "@/components/products/buy-now-button";
 import { formatPrice } from "@/lib/utils";
 import { fetchProduct, fetchProducts } from "@/lib/api";
 import { Product } from "@/types";
@@ -118,9 +119,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
             <div className="mt-8 flex gap-4">
               <AddToCartButton product={product} />
-              <button className="btn-secondary rounded-full px-6 py-3 text-sm font-medium">
-                Buy Now
-              </button>
+              <BuyNowButton product={product} />
             </div>
           </div>
         </div>
