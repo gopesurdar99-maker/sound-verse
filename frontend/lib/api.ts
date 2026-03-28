@@ -1,4 +1,10 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+if (!API_URL) {
+  throw new Error("NEXT_PUBLIC_API_URL is not set");
+}
+
+const BASE_URL = API_URL;
 
 export async function fetchProducts() {
   const res = await fetch(`${BASE_URL}/products/`, {
