@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LogOut, Shield, UserCircle2, Package } from "lucide-react";
+import { LogOut, UserCircle2, Package } from "lucide-react";
 import { useAuthStore } from "@/store/auth-store";
 
 export default function NavbarAuth() {
@@ -36,16 +36,6 @@ export default function NavbarAuth() {
 
   return (
     <div className="flex items-center gap-3">
-      {user.role === "admin" && (
-        <Link
-          href="/admin"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-violet-400/40"
-          title="Admin"
-        >
-          <Shield className="h-5 w-5" />
-        </Link>
-      )}
-
       <Link
         href="/orders"
         className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-blue-400/40"
