@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuthStore } from "@/store/auth-store";
 
@@ -8,21 +10,17 @@ export default function AdminGuard({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   const user = useAuthStore((s) => s.user);
 
+  useEffect(() => {
+    if (!user) {
+      router.replace("/login");
+    }
+  }, [user, router]);
+
   if (!user) {
-    return (
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-        <h2 className="text-2xl font-semibold text-white">Admin access required</h2>
-        <p className="mt-3 text-zinc-400">Please login as an admin to continue.</p>
-        <Link
-          href="/login"
-          className="mt-6 inline-block rounded-xl bg-white px-5 py-3 text-sm font-medium text-black"
-        >
-          Login
-        </Link>
-      </div>
-    );
+    return null; // redirect in progress
   }
 
   if (user.role !== "admin") {
